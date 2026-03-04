@@ -1,0 +1,136 @@
+.about-section {
+  padding: 64px 64px;
+  background: var(--white);
+  min-height: 100vh;
+}
+
+.about-top {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 56px;
+  align-items: flex-start;
+}
+
+.about-photo {
+  width: 280px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--gray-100);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  gap: 12px;
+  font-size: 14px;
+}
+
+.about-photo-placeholder i {
+  font-size: 48px;
+}
+
+.about-info {
+  flex: 1;
+}
+
+.about-skills-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 14px;
+}
+
+.about-skills-list {
+  margin-bottom: 28px;
+}
+
+.about-skills-list li {
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 2px solid var(--blue);
+  color: var(--blue);
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.btn-outline:hover {
+  background: var(--blue);
+  color: white;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.about-section-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gray-100);
+}
+
+.timeline-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-800);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.timeline-role {
+  font-size: 13.5px;
+  color: var(--gray-600);
+  margin-bottom: 8px;
+}
+
+/* Dark mode */
+.dark .about-section {
+  background: #13132b;
+}
+
+.dark .about-skills-heading,
+.dark .about-section-heading,
+.dark .timeline-title {
+  color: #e2e8f0;
+}
+
+.dark .timeline-role {
+  color: #94a3b8;
+}
+
+.dark .about-photo {
+  background: #1e1e3f;
+}

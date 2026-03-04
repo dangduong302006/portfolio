@@ -1,0 +1,39 @@
+:root {
+  --sidebar-width: 270px;
+}
+
+.app-root {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.top-accent-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--cyan));
+  z-index: 999;
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.dark {
+  --gray-50: #0f0f1a;
+  --gray-100: #1a1a2e;
+  --gray-200: #2a2a3e;
+  --gray-400: #475569;
+  --gray-600: #94a3b8;
+  --gray-800: #e2e8f0;
+  --white: #13132b;
+}
+
+.dark .section-title { color: #e2e8f0; }
