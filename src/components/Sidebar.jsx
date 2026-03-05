@@ -32,8 +32,7 @@ export default function Sidebar({ active, onNav, darkMode, setDarkMode }) {
         <div className="sidebar-avatar-wrap">
           <div className="sidebar-avatar-bg" />
           <div className="sidebar-avatar">
-            <div className="avatar-placeholder">
-              <i className="fa-solid fa-user" />
+            <img src ="ava2.jpg" alt="Đặng Đức Dương"/>
             </div>
           </div>
         </div>
