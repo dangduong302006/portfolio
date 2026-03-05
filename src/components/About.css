@@ -2,7 +2,6 @@
   padding: 64px 64px;
   background: var(--white);
   min-height: 100vh;
-  overflow: visible;
 }
 
 .about-top {
@@ -10,7 +9,6 @@
   gap: 48px;
   margin-bottom: 56px;
   align-items: flex-start;
-  overflow: visible;
 }
 
 .about-photo {
@@ -46,7 +44,6 @@
 
 .about-info {
   flex: 1;
-  overflow: visible;
 }
 
 .about-skills-heading {
@@ -70,7 +67,7 @@
   gap: 14px;
   flex-wrap: wrap;
   position: relative;
-  z-index: 20;
+  z-index: 100;
 }
 
 .btn-outline {
@@ -139,34 +136,49 @@
 .dark .about-photo {
   background: #1e1e3f;
 }
+
+/* Fix dropdown z-index và overflow */
+.about-section {
+  overflow: visible !important;
+}
+
+.about-top {
+  overflow: visible !important;
+  position: relative;
+  z-index: 5;
+}
+
+.about-info {
+  overflow: visible !important;
+  position: relative;
+  z-index: 5;
+}
+
+.about-buttons {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100;
+}
+
 .cv-dropdown {
   position: relative;
   display: inline-block;
+  z-index: 100;
 }
 
 .cv-dropdown-menu {
-  display: none;
   position: absolute;
-  top: 110%;
+  top: calc(100% + 8px);
   left: 0;
-  right: auto;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(37,99,235,0.15);
-  overflow: hidden;
-  min-width: 180px;
-  z-index: 10;
-  animation: dropDown 0.2s ease;
   border: 1px solid var(--gray-200);
-}
-
-@keyframes dropDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.cv-dropdown:hover .cv-dropdown-menu {
-  display: block;
+  box-shadow: 0 16px 40px rgba(37,99,235,0.15);
+  min-width: 180px;
+  z-index: 9999;
+  overflow: visible;
 }
 
 .cv-dropdown-menu a {
@@ -177,9 +189,9 @@
   font-size: 14px;
   font-weight: 600;
   color: var(--gray-800);
-  transition: var(--transition);
-  border-bottom: 1px solid var(--gray-100);
   text-decoration: none;
+  border-bottom: 1px solid var(--gray-100);
+  transition: var(--transition);
   white-space: nowrap;
 }
 
@@ -188,20 +200,8 @@
 }
 
 .cv-dropdown-menu a:hover {
-  background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(6,182,212,0.06));
+  background: rgba(37,99,235,0.06);
   color: var(--blue);
-  padding-left: 24px;
-}
-
-.cv-dropdown-menu a span.cv-flag {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  background: var(--gray-100);
 }
 
 .cv-flag {
@@ -217,10 +217,5 @@
   color: white;
 }
 
-.cv-flag.vi {
-  background: #da251d;
-}
-
-.cv-flag.en {
-  background: #012169;
-}
+.cv-flag.vi { background: #da251d; }
+.cv-flag.en { background: #012169; }
