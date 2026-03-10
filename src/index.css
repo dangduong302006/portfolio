@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,7 +28,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   background: var(--gray-50);
   color: var(--gray-800);
   overflow-x: hidden;
@@ -42,13 +44,20 @@ ul {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--gray-100); }
-::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--gray-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-light);
+  border-radius: 3px;
+}
 
 /* Section heading style */
 .section-title {
-  font-family: 'DM Sans', sans-serif;
+  font-family: "DM Sans", sans-serif;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 4px;
@@ -65,7 +74,7 @@ ul {
 }
 
 .section-title-underline::after {
-  content: '';
+  content: "";
   width: 48px;
   height: 3px;
   background: var(--blue);
@@ -81,7 +90,7 @@ ul {
 }
 
 .timeline-item::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 6px;
@@ -93,7 +102,7 @@ ul {
 }
 
 .timeline-item::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 5px;
   top: 18px;
@@ -131,7 +140,7 @@ ul {
 }
 
 .bullet-list li::before {
-  content: '•';
+  content: "•";
   position: absolute;
   left: 0;
   color: var(--blue);
@@ -140,15 +149,138 @@ ul {
 
 /* Fade-in animation */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .fade-in {
   animation: fadeInUp 0.5s ease both;
 }
 
-.fade-in-1 { animation-delay: 0.1s; }
-.fade-in-2 { animation-delay: 0.2s; }
-.fade-in-3 { animation-delay: 0.3s; }
-.fade-in-4 { animation-delay: 0.4s; }
+.fade-in-1 {
+  animation-delay: 0.1s;
+}
+.fade-in-2 {
+  animation-delay: 0.2s;
+}
+.fade-in-3 {
+  animation-delay: 0.3s;
+}
+.fade-in-4 {
+  animation-delay: 0.4s;
+}
+/* --- Base reveal state (ẩn trước khi scroll tới) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* --- Khi element vào viewport --- */
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Stagger delays cho các item con --- */
+.reveal-group .reveal:nth-child(1) {
+  transition-delay: 0s;
+}
+.reveal-group .reveal:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.reveal-group .reveal:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.reveal-group .reveal:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.reveal-group .reveal:nth-child(5) {
+  transition-delay: 0.4s;
+}
+.reveal-group .reveal:nth-child(6) {
+  transition-delay: 0.5s;
+}
+
+/* --- Delay variants dùng trực tiếp trên element --- */
+.reveal-delay-1 {
+  transition-delay: 0.1s !important;
+}
+.reveal-delay-2 {
+  transition-delay: 0.2s !important;
+}
+.reveal-delay-3 {
+  transition-delay: 0.3s !important;
+}
+.reveal-delay-4 {
+  transition-delay: 0.4s !important;
+}
+.reveal-delay-5 {
+  transition-delay: 0.5s !important;
+}
+.reveal-delay-6 {
+  transition-delay: 0.6s !important;
+}
+
+/* --- Slide từ trái (cho sidebar items, contact info) --- */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Slide từ phải --- */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --- Scale in (cho avatar, cards nổi bật) --- */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* --- Respect reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
